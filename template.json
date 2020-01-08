@@ -24,9 +24,7 @@
                 "name": "S0"
             },
             "kind": "AnomalyDetector",
-            "properties": {
-                "customSubDomainName": "[variables('anomalydetector')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -37,9 +35,7 @@
                 "name": "S1"
             },
             "kind": "Bing.Autosuggest.v7",
-            "properties": {
-                "customSubDomainName": "[variables('bingautosuggest')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -51,8 +47,7 @@
             },
             "kind": "Bing.Search.v7",
             "properties": {
-                "apiProperties": {},
-                "customSubDomainName": "[variables('bingsearch')]"
+                "apiProperties": {}
             }
         },
         {
@@ -64,9 +59,7 @@
                 "name": "S1"
             },
             "kind": "ComputerVision",
-            "properties": {
-                "customSubDomainName": "[variables('computervision')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -77,9 +70,7 @@
                 "name": "S0"
             },
             "kind": "CustomVision.Training",
-            "properties": {
-                "customSubDomainName": "[variables('customvisiontrain')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -90,9 +81,7 @@
                 "name": "S0"
             },
             "kind": "CustomVision.Prediction",
-            "properties": {
-                "customSubDomainName": "[variables('customvisionpred')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -103,9 +92,7 @@
                 "name": "S0"
             },
             "kind": "Face",
-            "properties": {
-                "customSubDomainName": "[variables('faceapi')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -116,9 +103,7 @@
                 "name": "S0"
             },
             "kind": "InkRecognizer",
-            "properties": {
-                "customSubDomainName": "[variables('inkrecognizer')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -129,9 +114,7 @@
                 "name": "S"
             },
             "kind": "TextAnalytics",
-            "properties": {
-                "customSubDomainName": "[variables('texttanalytics')]"
-            }
+            "properties": {}
         },
         {
             "type": "Microsoft.CognitiveServices/accounts",
@@ -142,9 +125,25 @@
                 "name": "F0"
             },
             "kind": "TextTranslation",
-            "properties": {
-                "customSubDomainName": "[variables('texttranslation')]"
-            }
+            "properties": {}
         }
-    ]
+    ],
+    "outputs": {
+    "cognitivekeys": {
+      "type": "object",
+      "value": "[listKeys(variables('faceapi'),'2017-04-18')]"
+    },
+    "cognitivekey1": {
+      "type": "string",
+      "value": "[listKeys(variables('faceapi'),'2017-04-18').key1]"
+    },
+    "cognitivekey2": {
+      "type": "string",
+      "value": "[listKeys(variables('faceapi'),'2017-04-18').key2]"
+    },
+    "endpoint": {
+      "type": "string",
+      "value": "[reference(variables('faceapi'),'2017-04-18').endpoint]"
+    }
+  }
 }
