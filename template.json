@@ -1,0 +1,150 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "faceapi": "[concat('kiosk-face', uniqueString(resourceGroup().id))]",
+        "computervision": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "customvisiontrain": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "customvisionpred": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "bingsearch": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "bingautosuggest": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "texttanalytics": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "texttranslation": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "inkrecognizer": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
+        "anomalydetector": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('anomalydetector')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S0"
+            },
+            "kind": "AnomalyDetector",
+            "properties": {
+                "customSubDomainName": "[variables('anomalydetector')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('bingautosuggest')]",
+            "location": "global",
+            "sku": {
+                "name": "S1"
+            },
+            "kind": "Bing.Autosuggest.v7",
+            "properties": {
+                "customSubDomainName": "[variables('bingautosuggest')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('bingsearch')]",
+            "location": "global",
+            "sku": {
+                "name": "S1"
+            },
+            "kind": "Bing.Search.v7",
+            "properties": {
+                "apiProperties": {},
+                "customSubDomainName": "[variables('bingsearch')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('computervision')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S1"
+            },
+            "kind": "ComputerVision",
+            "properties": {
+                "customSubDomainName": "[variables('computervision')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('customvisiontrain')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S0"
+            },
+            "kind": "CustomVision.Training",
+            "properties": {
+                "customSubDomainName": "[variables('customvisiontrain')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('customvisionpred')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S0"
+            },
+            "kind": "CustomVision.Prediction",
+            "properties": {
+                "customSubDomainName": "[variables('customvisionpred')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('faceapi')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S0"
+            },
+            "kind": "Face",
+            "properties": {
+                "customSubDomainName": "[variables('faceapi')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('inkrecognizer')]",
+            "location": "global",
+            "sku": {
+                "name": "S0"
+            },
+            "kind": "InkRecognizer",
+            "properties": {
+                "customSubDomainName": "[variables('inkrecognizer')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('texttanalytics')]",
+            "location": "southeastasia",
+            "sku": {
+                "name": "S"
+            },
+            "kind": "TextAnalytics",
+            "properties": {
+                "customSubDomainName": "[variables('texttanalytics')]"
+            }
+        },
+        {
+            "type": "Microsoft.CognitiveServices/accounts",
+            "apiVersion": "2017-04-18",
+            "name": "[variables('texttranslation')]",
+            "location": "global",
+            "sku": {
+                "name": "F0"
+            },
+            "kind": "TextTranslation",
+            "properties": {
+                "customSubDomainName": "[variables('texttranslation')]"
+            }
+        }
+    ]
+}
