@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
-        "faceapi": "[concat('kiosk-face', uniqueString(resourceGroup().id))]",
-        "computervision": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "customvisiontrain": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "customvisionpred": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "bingsearch": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "bingautosuggest": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "texttanalytics": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "texttranslation": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "inkrecognizer": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]",
-        "anomalydetector": "[concat('kiosk-comp-vision', uniqueString(resourceGroup().id))]"
+        "faceapi": "[concat('face', uniqueString(resourceGroup().id))]",
+        "computervision": "[concat('comp-vision', uniqueString(resourceGroup().id))]",
+        "customvisiontrain": "[concat('customvision-train', uniqueString(resourceGroup().id))]",
+        "customvisionpred": "[concat('customvision-pred', uniqueString(resourceGroup().id))]",
+        "bingsearch": "[concat('bing-search', uniqueString(resourceGroup().id))]",
+        "bingautosuggest": "[concat('bing-autosuggest', uniqueString(resourceGroup().id))]",
+        "texttanalytics": "[concat('text-tanalytics', uniqueString(resourceGroup().id))]",
+        "texttranslation": "[concat('text-translation', uniqueString(resourceGroup().id))]",
+        "inkrecognizer": "[concat('ink-recognizer', uniqueString(resourceGroup().id))]",
+        "anomalydetector": "[concat('anomaly-detector', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
